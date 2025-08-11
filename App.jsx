@@ -173,12 +173,12 @@ export default function App() {
       <Header />
 
       {/* Hero */}
-      <section id="home" className="relative overflow-hidden py-20 md:py-28">
+      <section id="home" className="relative overflow-hidden py-12 md:py-16">
         <div className="absolute inset-0 -z-10 opacity-30" aria-hidden>
           <div className="mx-auto h-[36rem] w-[36rem] rounded-full bg-bronze/30 blur-3xl" />
         </div>
         <div className="mx-auto max-w-6xl px-4">
-          <div className="grid items-center gap-10 md:grid-cols-2">
+          <div className="grid items-start gap-10 md:grid-cols-2">
             <div>
               <Pill>AI Automation • Academy</Pill>
               <h1 className="mt-4 text-4xl font-bold leading-tight text-bronze md:text-6xl">
@@ -199,49 +199,49 @@ export default function App() {
                 <div className="flex items-center gap-2"><Cog className="h-4 w-4" /> Built for security</div>
               </div>
             </div>
-            <motion.div initial={{opacity:0, y:16}} whileInView={{opacity:1, y:0}} viewport={{once:true}} transition={{duration:0.6}}
-              className="rounded-3xl border border-sandstone/40 bg-obsidian/70 p-4 shadow-[var(--shadow-xl)] backdrop-blur">
-              <div className="grid gap-4 md:grid-cols-2">
-                <div className="rounded-2xl border border-sandstone/40 p-4">
-                  <div className="flex items-center gap-2">
-                    <Workflow className="h-5 w-5" />
-                    <span className="text-sm font-semibold">Agentic Ops</span>
-                  </div>
-                  <p className="mt-2 text-sm text-sandstone">
-                    Orchestrate multi-step processes across tools like Microsoft 365, Nextcloud, n8n and custom APIs.
-                  </p>
-                </div>
-                <div className="rounded-2xl border border-sandstone/40 p-4">
-                  <div className="flex items-center gap-2">
-                    <Rocket className="h-5 w-5" />
-                    <span className="text-sm font-semibold">Rapid Pilots</span>
-                  </div>
-                  <p className="mt-2 text-sm text-sandstone">Ship a working pilot in weeks with measurable impact.</p>
-                </div>
-                <div className="rounded-2xl border border-sandstone/40 p-4">
-                  <div className="flex items-center gap-2">
-                    <LineChart className="h-5 w-5" />
-                    <span className="text-sm font-semibold">Analytics</span>
-                  </div>
-                  <p className="mt-2 text-sm text-sandstone">Dashboards and reporting to track value and adoption.</p>
-                </div>
-                <div className="rounded-2xl border border-sandstone/40 p-4">
-                  <div className="flex items-center gap-2">
-                    <ShieldCheck className="h-5 w-5" />
-                    <span className="text-sm font-semibold">Governance</span>
-                  </div>
-                  <p className="mt-2 text-sm text-sandstone">Security, privacy and change management built-in.</p>
-                </div>
+            <div className="space-y-6">
+              <div id="live-chat">
+                <ChatSection />
               </div>
-            </motion.div>
+              <motion.div initial={{opacity:0, y:16}} whileInView={{opacity:1, y:0}} viewport={{once:true}} transition={{duration:0.6}}
+                className="rounded-3xl border border-sandstone/40 bg-obsidian/70 p-4 shadow-[var(--shadow-xl)] backdrop-blur">
+                <div className="grid gap-4 md:grid-cols-2">
+                  <div className="rounded-2xl border border-sandstone/40 p-4">
+                    <div className="flex items-center gap-2">
+                      <Workflow className="h-5 w-5" />
+                      <span className="text-sm font-semibold">Agentic Ops</span>
+                    </div>
+                    <p className="mt-2 text-sm text-sandstone">
+                      Orchestrate multi-step processes across tools like Microsoft 365, Nextcloud, n8n and custom APIs.
+                    </p>
+                  </div>
+                  <div className="rounded-2xl border border-sandstone/40 p-4">
+                    <div className="flex items-center gap-2">
+                      <Rocket className="h-5 w-5" />
+                      <span className="text-sm font-semibold">Rapid Pilots</span>
+                    </div>
+                    <p className="mt-2 text-sm text-sandstone">Ship a working pilot in weeks with measurable impact.</p>
+                  </div>
+                  <div className="rounded-2xl border border-sandstone/40 p-4">
+                    <div className="flex items-center gap-2">
+                      <LineChart className="h-5 w-5" />
+                      <span className="text-sm font-semibold">Analytics</span>
+                    </div>
+                    <p className="mt-2 text-sm text-sandstone">Dashboards and reporting to track value and adoption.</p>
+                  </div>
+                  <div className="rounded-2xl border border-sandstone/40 p-4">
+                    <div className="flex items-center gap-2">
+                      <ShieldCheck className="h-5 w-5" />
+                      <span className="text-sm font-semibold">Governance</span>
+                    </div>
+                    <p className="mt-2 text-sm text-sandstone">Security, privacy and change management built-in.</p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
-
-      {/* Live chat */}
-      <Section id="live-chat" eyebrow="Live chat" title="Chat with our AI assistant" subtitle="Ask us anything in real time.">
-        <ChatSection />
-      </Section>
 
       {/* Services */}
       <Section id="services" eyebrow="What we do" title="Services tailored to your roadmap"
