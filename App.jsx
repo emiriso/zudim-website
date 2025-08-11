@@ -238,6 +238,11 @@ export default function App() {
         </div>
       </section>
 
+      {/* Chat */}
+      <Section id="chat" eyebrow="Live chat" title="Chat with our AI assistant" subtitle="Ask us anything in real time.">
+        <ChatSection />
+      </Section>
+
       {/* Services */}
       <Section id="services" eyebrow="What we do" title="Services tailored to your roadmap"
                subtitle="Pick a starting point or combine tracks for a full solution.">
@@ -321,11 +326,6 @@ export default function App() {
             </div>
           </div>
         </div>
-      </Section>
-
-      {/* Chat */}
-      <Section id="chat" eyebrow="Live chat" title="Chat with our AI assistant" subtitle="Ask us anything in real time.">
-        <ChatSection />
       </Section>
 
       <Footer />
