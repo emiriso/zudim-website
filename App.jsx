@@ -1,7 +1,7 @@
-import React, { Suspense, useMemo, useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
 import { BrainCircuit, Workflow, Rocket, ShieldCheck, Cog, LineChart, Mail, Phone, Calendar, ArrowRight } from 'lucide-react'
-const Chatbot = React.lazy(() => import('./Chatbot'))
+import Chatbot from './Chatbot.jsx'
 
 const Pill = ({ children }) => (
   <span className="inline-flex items-center gap-2 rounded-full border border-sandstone/40 px-3 py-1 text-xs font-medium text-sandstone">
@@ -324,9 +324,7 @@ export default function App() {
       </Section>
 
       <Footer />
-      <Suspense fallback={null}>
-        <Chatbot />
-      </Suspense>
+      <Chatbot />
     </div>
   )
 }
