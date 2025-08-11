@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import { MessageCircle, Send } from 'lucide-react'
 
 const WEBHOOK_URL = 'https://n8n.zudim.co.uk/webhook/173c259c-f3c7-48dd-914f-cb1f24b88add'
@@ -10,7 +10,7 @@ export default function Chatbot() {
   ])
   const [input, setInput] = useState('')
 
-  const sendMessage = async (e) => {
+  const sendMessage = useCallback(async (e) => {
     e.preventDefault()
     if (!input.trim()) return
     const text = input.trim()
@@ -28,7 +28,7 @@ export default function Chatbot() {
     } catch {
       setMessages(m => [...m, { sender: 'bot', text: 'Sorry, something went wrong.' }])
     }
-  }
+  }, [input])
 
   return (
     <div className="fixed bottom-4 right-4 z-50 text-clay">
@@ -38,7 +38,7 @@ export default function Chatbot() {
           <div className="max-h-60 space-y-2 overflow-y-auto p-3 text-sm">
             {messages.map((m, i) => (
               <div key={i} className={m.sender === 'user' ? 'text-right' : 'text-left'}>
-                <div className={`inline-block rounded-xl px-3 py-2 ${m.sender === 'user' ? 'bg-verdant text-clay' : 'bg-primary/20 text-clay'}`}>{m.text}</div>
+                <div className={`inline-block rounded-xl px-3 py-2 ${m.sender === 'user' ? 'bg-verdant text-clay' : 'bg-bronze/20 text-clay'}`}>{m.text}</div>
               </div>
             ))}
           </div>

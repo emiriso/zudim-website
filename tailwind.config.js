@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#7C623F',
+        bronze: '#7C623F',
         obsidian: '#1C1B1A',
         turquoise: '#40E0D0',
         lapis: '#20619C',

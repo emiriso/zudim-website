@@ -1,7 +1,7 @@
-import React, { useMemo, useState } from 'react'
+import React, { Suspense, useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
 import { BrainCircuit, Workflow, Rocket, ShieldCheck, Cog, LineChart, Mail, Phone, Calendar, ArrowRight } from 'lucide-react'
-import Chatbot from './Chatbot'
+const Chatbot = React.lazy(() => import('./Chatbot'))
 
 const Pill = ({ children }) => (
   <span className="inline-flex items-center gap-2 rounded-full border border-sandstone/40 px-3 py-1 text-xs font-medium text-sandstone">
@@ -20,8 +20,8 @@ const Section = ({ id, eyebrow, title, subtitle, children }) => (
     <div className="mx-auto max-w-6xl px-4">
       {(eyebrow || title) && (
         <div className="mb-10 md:mb-14">
-          {eyebrow && <p className="text-sm font-medium tracking-widest text-primary uppercase">{eyebrow}</p>}
-          {title && <h2 className="mt-3 text-3xl font-bold leading-tight text-primary md:text-5xl">{title}</h2>}
+          {eyebrow && <p className="text-sm font-medium tracking-widest text-bronze uppercase">{eyebrow}</p>}
+          {title && <h2 className="mt-3 text-3xl font-bold leading-tight text-bronze md:text-5xl">{title}</h2>}
           {subtitle && <p className="mt-4 max-w-3xl text-base text-sandstone md:text-lg">{subtitle}</p>}
         </div>
       )}
@@ -43,7 +43,7 @@ const Feature = ({ icon: Icon, title, desc }) => (
 )
 
 const PricingCard = ({ name, price, features, highlighted }) => (
-  <div className={["rounded-2xl border p-6 shadow-sm border-sandstone/40", highlighted ? "ring-2 ring-primary" : ""].join(" ")}> 
+  <div className={["rounded-2xl border p-6 shadow-sm border-sandstone/40", highlighted ? "ring-2 ring-bronze" : ""].join(" ")}> 
     <div className="flex items-baseline justify-between">
       <h3 className="text-xl font-semibold">{name}</h3>
       <Pill>Early access</Pill>
@@ -75,7 +75,7 @@ function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-sandstone/40 bg-obsidian/80 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
         <a href="#home" className="flex items-center gap-2">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10">
+          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-bronze/10">
             <BrainCircuit className="h-5 w-5" />
           </div>
           <span className="text-lg font-bold">Zudim</span>
@@ -99,7 +99,7 @@ function Footer() {
         <div className="grid gap-8 md:grid-cols-3">
           <div>
             <div className="flex items-center gap-2">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10">
+              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-bronze/10">
                 <BrainCircuit className="h-5 w-5" />
               </div>
               <span className="text-lg font-bold">Zudim</span>
@@ -175,13 +175,13 @@ export default function App() {
       {/* Hero */}
       <section id="home" className="relative overflow-hidden py-20 md:py-28">
         <div className="absolute inset-0 -z-10 opacity-30" aria-hidden>
-          <div className="mx-auto h-[36rem] w-[36rem] rounded-full bg-primary/30 blur-3xl" />
+          <div className="mx-auto h-[36rem] w-[36rem] rounded-full bg-bronze/30 blur-3xl" />
         </div>
         <div className="mx-auto max-w-6xl px-4">
           <div className="grid items-center gap-10 md:grid-cols-2">
             <div>
               <Pill>AI Automation • Academy</Pill>
-              <h1 className="mt-4 text-4xl font-bold leading-tight text-primary md:text-6xl">
+              <h1 className="mt-4 text-4xl font-bold leading-tight text-bronze md:text-6xl">
                 Build smarter workflows. Scale your business.
               </h1>
               <p className="mt-4 max-w-xl text-base text-sandstone md:text-lg">
@@ -324,7 +324,9 @@ export default function App() {
       </Section>
 
       <Footer />
-      <Chatbot />
+      <Suspense fallback={null}>
+        <Chatbot />
+      </Suspense>
     </div>
   )
 }
