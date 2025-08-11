@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
 import { BrainCircuit, Workflow, Rocket, ShieldCheck, Cog, LineChart, Mail, Phone, Calendar, ArrowRight } from 'lucide-react'
+import Chatbot from './Chatbot'
 
 const Pill = ({ children }) => (
   <span className="inline-flex items-center gap-2 rounded-full border border-sandstone/40 px-3 py-1 text-xs font-medium text-sandstone">
@@ -323,6 +324,7 @@ export default function App() {
       </Section>
 
       <Footer />
+      <Chatbot />
     </div>
   )
 }
