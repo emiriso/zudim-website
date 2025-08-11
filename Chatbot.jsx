@@ -23,8 +23,14 @@ export default function Chatbot() {
         body: JSON.stringify({ message: text })
       })
       const data = await res.json().catch(() => ({}))
-      const reply = data.reply || data.message || JSON.stringify(data) || 'No response'
-      setMessages(m => [...m, { sender: 'bot', text: reply }])
+      let reply = data.output || data.reply || data.message
+      if (!reply && typeof data === 'object') {
+        reply = Object.values(data).find(v => typeof v === 'string')
+      }
+      setMessages(m => [
+        ...m,
+        { sender: 'bot', text: reply || 'No response' }
+      ])
     } catch {
       setMessages(m => [...m, { sender: 'bot', text: 'Sorry, something went wrong.' }])
     }
