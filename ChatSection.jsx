@@ -33,8 +33,8 @@ export default function ChatSection() {
   }, [input])
 
   return (
-    <div className="max-w-lg rounded-2xl border border-sandstone/40 bg-obsidian/60 p-6 text-clay shadow-sm">
-      <div className="mb-4 max-h-80 space-y-2 overflow-y-auto text-sm">
+    <div className="w-full max-w-lg rounded-2xl border border-sandstone/40 bg-obsidian/60 p-4 sm:p-6 text-clay shadow-sm">
+      <div className="mb-4 max-h-60 sm:max-h-80 space-y-2 overflow-y-auto text-sm">
         {messages.map((m, i) => (
           <div key={i} className={m.sender === 'user' ? 'text-right' : 'text-left'}>
             <div className={`inline-block rounded-xl px-3 py-2 ${m.sender === 'user' ? 'bg-verdant text-clay' : 'bg-bronze/20 text-clay'}`}>{m.text}</div>

@@ -16,7 +16,7 @@ const CTA = ({ href = '#contact', children }) => (
 )
 
 const Section = ({ id, eyebrow, title, subtitle, children }) => (
-  <section id={id} className="scroll-mt-24 py-20 md:py-28">
+  <section id={id} className="scroll-mt-24 py-16 sm:py-20 md:py-28">
     <div className="mx-auto max-w-6xl px-4">
       {(eyebrow || title) && (
         <div className="mb-10 md:mb-14">
@@ -175,10 +175,10 @@ export default function App() {
       {/* Hero */}
       <section id="home" className="relative overflow-hidden py-12 md:py-16">
         <div className="absolute inset-0 -z-10 opacity-30" aria-hidden>
-          <div className="mx-auto h-[36rem] w-[36rem] rounded-full bg-bronze/30 blur-3xl" />
+          <div className="mx-auto h-[24rem] w-[24rem] md:h-[36rem] md:w-[36rem] rounded-full bg-bronze/30 blur-3xl" />
         </div>
         <div className="mx-auto max-w-6xl px-4">
-          <div className="grid items-start gap-10 md:grid-cols-2">
+          <div className="grid items-start gap-8 md:grid-cols-2 md:gap-10">
             <div>
               <Pill>AI Automation • Academy</Pill>
               <h1 className="mt-4 text-4xl font-bold leading-tight text-bronze md:text-6xl">
